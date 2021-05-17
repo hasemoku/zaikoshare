@@ -6,6 +6,7 @@
       本当に購入にしてもよろしいですか？
     </h1>
 
+
     <%= form_with model: @purchase, url: item_purchases_path, id: 'charge-form', class: 'transaction-form-wrap',local: true do |f| %>
     <%#= render 'shared/error_messages', model: f.object %>
     <%= f.hidden_field :item_id, :value => @item.id %>
