@@ -1,0 +1,19 @@
+<%= render "shared/second-header"%>
+
+<div class='transaction-contents'>
+  <div class='transaction-main'>
+    <h1 class='transaction-title-text'>
+      本当に購入にしてもよろしいですか？
+    </h1>
+
+    <%= form_with model: @purchase, url: item_purchases_path, id: 'charge-form', class: 'transaction-form-wrap',local: true do |f| %>
+    <%#= render 'shared/error_messages', model: f.object %>
+    <%= f.hidden_field :item_id, :value => @item.id %>
+    <%= f.hidden_field :user_id, :value => @item.user.id %>
+      <div class='buy-btn'>
+        <%= f.submit "購入" ,class:"buy-red-btn" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+<%#= render "shared/second-footer"%>
