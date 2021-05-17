@@ -18,8 +18,11 @@ class PurchasesController < ApplicationController
   private
 
   def purchase_params
-    params.require(:purchase).permit(:item_id).merge(user_id: current_user.id)
+    params.require(:purchase).permit(:item_id).tap do |v|
+      v[:user_id] = current_user.id
+    end
   end
+  
 
   def set_item
     @item = Item.find(params[:item_id])
