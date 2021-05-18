@@ -8,4 +8,14 @@ class Item < ApplicationRecord
   belongs_to :condition2
   belongs_to :condition3
   has_one    :purchase
+
+  with_options presence: true do
+    validates :product_name
+    validates :image
+  end
+  
+  with_options numericality: { other_than: 1 } do
+    validates :type_id
+    validates :sheet_id
+  end
 end
