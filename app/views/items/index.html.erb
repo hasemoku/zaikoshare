@@ -3,43 +3,90 @@
 
   <div class='title-contents'>
     <h2 class='service-title'>
-      人生を変えるフリマアプリ
+      材料は眠っていませんか？
     </h2>
     <p class='service-explain'>
-      FURIMAはだれでもかんたんに出品・購入できる
+      在庫を共有することでコストダウンを目指せます
     </p>
     <p class='service-explain'>
-      フリマアプリです
+      流通を新しく、もっと未来へ
     </p>
   </div>
 
+  <div class='select-reason-contents'>
+    <div class='reason-contents-mask'>
+    </div>
+    <div class='mask-on-mask'>
+      <ul class='reason-list-text'>
+        <li class='reason-list-blue-text'><span class='reason-icon'><i class="fas fa-handshake"></i></span>　パートナー企業のみの出品で安心</li>
+        <li class='reason-list-blue-text'><span class='reason-icon'><i class="fas fa-truck-moving"></i></span>　いままで通りの配送</li>
+        <li class='reason-list-blue-text'><span class='reason-icon'><i class="fas fa-coins"></i></span>　不要な在庫を売却できて、倉庫もスッキリ</li>       
+      </ul>
+    </div>
+  </div>
+
+  <div class='smartphone-contents'>
+    <%= image_tag "sumaho.png", class:"sumaho-icon" %>  
+    <div class='sumaho-contents-box'>
+    </div>
+    <div class='sumaho-contents-box'>
+      <ul class='sumaho-contents-text'>
+        <li class='sumaho-text1'>スマホで誰でもかんたんに登録できる！</li>
+        <li class='sumaho-text'>ぜひスマホからアクセスしてみて下さい</li>
+        <li class='sumaho-text'>必要なのはEメールとパスワードだけです</li>
+        <li class='sumaho-text'>新しい体験がそこに待っています</li>
+        <li class='sumaho-text'>会社によってはタブレットの方が良い事もあると思います</li>
+        <li class='sumaho-text'>もちろんタブレットでもアクセス可能です。</li>
+        <li class='sumaho-text2'><span class='sumaho-contents-icon'><i class="fas fa-chevron-circle-right"></i></span>スマホからアクセス可能</li>
+        <li class='sumaho-text3'><span class='sumaho-contents-icon'><i class="fas fa-chevron-circle-right"></i></span>タブレットからアクセス可能</li>
+        <li class='sumaho-text3'><span class='sumaho-contents-icon'><i class="fas fa-chevron-circle-right"></i></span>パソコンからアクセス可能</li>
+      </ul>
+    </div>
+  </div>
+
+  
   <div class='item-contents'>
-    <h2 class='title'>ピックアップカテゴリー</h2>
-    <%= link_to '新規投稿商品', "#", class: "subtitle" %>
+    <h2 class='title'>共有商品一覧</h2>
+    <h3 class='subtitle'>アイカ工業のパネル規格3×6板(935×1855)を基準に表示しております</h3>
     <ul class='item-lists'>
 
       <% @items.each do |item| %>
         <li class='list'>
           <%= link_to item_path(item.id) do %>
           <div class='item-img-content'>
+            <% if item.sheet_id == 3 %>
+              <div class='vertical-half'>
+              </div>
+            <% elsif item.sheet_id == 4 %>
+              <div class='horaizontal-half'>
+              </div>
+              <% elsif item.sheet_id == 5 %>
+              <div class='vertical-third'>
+              </div>
+              <% elsif item.sheet_id == 6 %>
+              <div class='horaizontal-third'>
+              </div>
+              <% elsif item.sheet_id == 7 %>
+              <div class='quarter1'>
+              </div>
+              <div class='quarter2'>
+              </div>
+            <% end %>
+
             <%= image_tag item.image, class: "item-img" %>
-            <%# if item.purchase.present? %>
+            <% if item.purchase.present? %>
             <div class='sold-out'>
-              <span>Sold Out!!</span>
+              <span>売約済み</span>
             </div>
-            <%# end %>
+            <% end %>
           </div>
           <div class='item-info'>
-            <h3 class='item-name'>
-              <%= item.product_name %>
-            </h3>
-            <div class='item-price'>
-              <span><%#= item.price %>円<br><%#= item.shipping_charge.name %></span>
-              <div class='star-btn'>
-                <%#= image_tag "star.png", class:"star-icon" %>
-                <span class='star-count'>0</span>
-              </div>
-            </div>
+            <h4 class='item-name'>
+              商品名<span class='item-info-icon'><i class="fas fa-angle-double-right"></i></span><%= item.product_name %>
+            </h4>
+            <h4 class='item-company'>  
+              出品社<span class='item-info-icon'><i class="fas fa-angle-double-right"></i></span><%= item.user.company%>
+            </h4>
           </div>
           <% end %>
         </li>

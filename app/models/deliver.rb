@@ -1,5 +1,5 @@
 class Deliver < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :purchase
-  belongs_to :delivery_source
+  belongs_to :arrival
 end

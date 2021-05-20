@@ -2,6 +2,108 @@
   box-sizing: border-box;
 }
 
+.top-page-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(0,0,0,0.8);
+  position:fixed;
+  width: 100%;
+  z-index: 100;
+}
+
+.zaikoshare-icon {
+  padding-top: 5px;
+  width: 200px;
+  height: 50px;
+  margin-right: auto;
+}
+
+.zaikoshare-icon:hover{
+  opacity: 0.5;
+  transition: .3s;
+}
+
+.nav{
+  list-style: none;
+  overflow: hidden;
+}
+
+.lists-right{
+  display: flex;
+  align-items: center;
+  
+}
+
+.user-company , .login , .logout , .sign-up{
+  font-family: 'M PLUS 1p', sans-serif;
+  text-decoration: none;
+  font-size: small;
+  color: #FFF;
+}
+.user-company:hover , .login:hover , .logout:hover , .sign-up:hover{
+  opacity: 0.5 ;
+  transition: .3s;
+  }
+
+
+.nav li {
+  width: 140px;
+  text-align: center;
+  text-decoration: none;
+  float: left;
+}
+
+.listing-btn-text {
+  display: inline-block;
+  width: 100px;
+  text-align: center;
+  font-size: small;
+  color: #FFF;
+  text-decoration: none;
+  padding: 0px 0px;
+  margin-right: 20px;
+  border-radius: 4px;
+  background-image: linear-gradient(-90deg, #f02d26, #008cff);
+  transition: .5s;
+  background-size: 200%;
+  font-family: 'M PLUS 1p', sans-serif
+}
+
+.listing-btn-text:hover {
+  background-position: right center;
+}
+
+.search-input{
+  left:0;
+  top:0; 
+  outline:0;
+  background:rgb(255, 255, 255);
+  height: 25px;
+  font-size: small;
+  font-family: 'M PLUS 1p', sans-serif;
+  width: 220px;
+  opacity: 0.95;
+  border-radius:4px ;
+  border: solid;
+}
+
+.search-btn{
+position: absolute;
+margin-top: 4px;
+margin-left: -30px;
+height: 20px;
+background:none;
+color:#3f3c3c;
+border:none;
+font-size:15px;
+transition: .5s;
+}
+.search-btn:hover{
+opacity: 0.5;
+transition: .3s;
+}
+
 .title-contents {
   width: 100vw;
   background-image: image-url('header.jpeg');
@@ -11,9 +113,231 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: center;
+  justify-content:center;
   padding: 5vh 15vw;
   color: #fff;
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
-  height: 600px;
+  height: 700px;
 }
+
+.service-title{
+  font-family: 'Train One', cursive;
+  font-size: 4.5vw;
+  margin-left: 15%;
+}
+.service-explain{
+  font-family: 'M PLUS 1p', sans-serif;
+  font-size: 2.6vw;
+  line-height: 6vw;
+  font-weight: bold;
+  margin-left: 15.5%;
+}
+
+.select-reason-contents{
+  background-image: image-url('cuttingmachine.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 400px;
+  background-color: rgb(24, 23, 22);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.reason-contents-mask{
+
+  position: absolute;
+  background-color: rgba(0,0,0,0.5);
+  height: 400px;
+  width: 100%;
+}
+
+.mask-on-mask{
+  z-index: 99;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  margin-left: 8%;
+}
+
+.reason-list-text{
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-size: 3vh;
+  text-decoration:underline 1px;
+  color: rgb(255, 255, 255);
+}
+
+
+.reason-icon{
+  font-size: 5vh;
+}
+
+
+
+.smartphone-contents{
+  width: 100%;
+  height: 400px;
+  display: flex;
+  background-color: rgb(245, 239, 225);
+}
+
+.sumaho-icon{
+  position: absolute;
+  margin-top: 40px;
+  height: 360px;
+  margin-left: 15%;
+}
+
+.sumaho-contents-box{
+  display: flex;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+}
+
+.sumaho-contents-text{
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  width: 100%;
+}
+
+.sumaho-text1{
+  font-family: 'M PLUS 1p', sans-serif;
+  color: rgb(0, 0, 0);
+  margin-bottom:20px ;
+  margin-top: 20px;
+  font-size: large;
+  margin-left: -30px;
+}
+
+.sumaho-text{
+  margin-left: -30px;
+  font-size: small;
+}
+
+.sumaho-text2{
+  margin-top: 20px;
+  font-size: small;
+  color: rgb(146, 75, 46);
+}
+
+.sumaho-text3{
+  font-size: small;
+  color: rgb(146, 75, 46);
+}
+
+/* 商品一覧 */
+
+.item-contents {
+  background-color: #FFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10vh 0;
+}
+
+.item-contents>.title {
+  font-size: 3vh;
+  line-height: 1.4;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+.item-contents>.subtitle{
+  font-size: 1.5vh;
+  margin: 1vh 0;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  margin-bottom: 50px;
+}
+
+.item-lists {
+  width: 100vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.item-lists>.list {
+  width: 37vh;
+  padding: 1vw;
+}
+
+.item-img-content {
+  position: relative;
+}
+
+.item-img {
+  width: 34.5vh;
+  height: 34.5vh;
+}
+/* 商品画像表示分岐 */
+
+.vertical-half , .horaizontal-half , .vertical-third , .horaizontal-third , .quarter1 , .quarter2{
+  position: absolute;
+  border: rgba(105, 105, 105, 0.555) solid 1px ;
+  background-color: rgba(0, 0, 0, 0.61);
+}
+
+.vertical-half{
+  width: 17.25vh;
+  height: 34.5vh;
+}
+
+.horaizontal-half{
+  width: 34.5vh;
+  height: 17.25vh;
+}
+
+.vertical-third{
+  width: 23vh;
+  height: 34.5vh;
+}
+
+.horaizontal-third{
+  width: 34.5vh;
+  height: 23vh;
+}
+
+.quarter1{
+  width: 34.5vh;
+  height: 17.25vh;
+}
+
+.quarter2{
+  width: 17.25vh;
+  height: 34.5vh;
+  border-right: transparent;
+}
+/* //商品画像表示分岐 */
+
+.sold-out {
+  position: absolute;
+  top: 40%;
+  width: 34.5vh;
+  text-align: center;
+  background-color: rgba(241, 94, 50, 0.575);
+}
+
+.sold-out>span {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  color: #FFF;
+  font-size: 45px;
+  font: bold;
+}
+
+.item-info {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  
+  background-color: #FFF;
+  color: black;
+  padding: 1vw;
+  border: rgba(105, 105, 105, 0.555) solid 1px ;
+}
+
+.item-info-icon{
+  font-size: 1vh;
+}
+
+/* //商品一覧 */

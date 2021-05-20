@@ -18,4 +18,13 @@ class Item < ApplicationRecord
     validates :type_id
     validates :sheet_id
   end
+
+  def self.search(search)
+    if search != ""
+      Item.where('product_name LIKE ?',"%#{search}%")
+    else
+      Item.all
+    end
+  end
+
 end
