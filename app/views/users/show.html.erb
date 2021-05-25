@@ -1,0 +1,76 @@
+<%= render "shared/header" %>
+<div class="main">
+  <div class="inner">
+    <div class="space_header"></div>
+    <div class="user__wrapper">
+      <h2 class="page-heading">
+        <%= "会社情報"%>
+      </h2>
+      <table class="table">
+        <tbody>
+          <tr>
+            <th class="table__col1">会社名</th>
+            <td class="table__col2"><%= "#{@company}" %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">所在地</th>
+            <td class="table__col2"><%= @user.address %></td>
+          </tr>
+
+        </tbody>
+      </table>
+      <h2 class="page-heading">
+        <%= "出品一覧"%>
+      </h2>
+      <div class="user__card">
+        <%# 部分テンプレートでそのユーザーが投稿したプロトタイプ投稿一覧を表示する %>
+  
+    <ul class='item-lists'>
+
+      <% @items.each do |item| %>
+        <li class='list'>
+          <%= link_to item_path(item.id) do %>
+          <div class='item-img-content'>
+            <% if item.sheet_id == 3 %>
+              <div class='vertical-half'>
+              </div>
+            <% elsif item.sheet_id == 4 %>
+              <div class='horaizontal-half'>
+              </div>
+              <% elsif item.sheet_id == 5 %>
+              <div class='vertical-third'>
+              </div>
+              <% elsif item.sheet_id == 6 %>
+              <div class='horaizontal-third'>
+              </div>
+              <% elsif item.sheet_id == 7 %>
+              <div class='quarter1'>
+              </div>
+              <div class='quarter2'>
+              </div>
+            <% end %>
+
+            <%= image_tag item.image, class: "item-img" %>
+            <% if item.purchase.present? %>
+            <div class='sold-out'>
+              <span>売約済み</span>
+            </div>
+            <% end %>
+          </div>
+          <div class='item-info'>
+            <h4 class='item-name'>
+              商品名<span class='item-info-icon'><i class="fas fa-angle-double-right"></i></span><%= item.product_name %>
+            </h4>
+            <h4 class='item-company'>  
+              出品社<span class='item-info-icon'><i class="fas fa-angle-double-right"></i></span><%= item.user.company%>
+            </h4>
+          </div>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render "shared/footer" %>

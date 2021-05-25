@@ -10,13 +10,7 @@
 
   <%= render 'shared/error_messages', model: f.object %>
 
-  <div class="form-group">
-    <div class='form-text-wrap'>
-      <label class="form-text">会社名</label>
-      <span class="indispensable">必須</span>
-    </div>
-    <%= f.text_area :company, class:"input-default", id:"nickname", placeholder:"例) 株式会社○○", maxlength:"40" %>
-  </div>
+
   <div class="form-group">
     <div class='form-text-wrap'>
       <label class="form-text">メールアドレス</label>
@@ -41,11 +35,15 @@
   </div>
   <div class="form-group">
     <p class='form-info-header'>
-      本人確認
+      会社情報確認
     </p>
-    <p class='form-info-text'>
-      安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
-    </p>
+  </div>
+    <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">会社名</label>
+      <span class="indispensable">必須</span>
+    </div>
+    <%= f.text_area :company, class:"input-default", id:"nickname", placeholder:"例) 株式会社○○", maxlength:"40" %>
   </div>
     <div class="form-group">
     <div class='form-text-wrap'>
@@ -93,7 +91,6 @@
   <div class='register-btn'>
     <%= f.submit "会員登録" ,class:"register-red-btn" %>
   </div>
-  <p class='register-info'>本人情報の登録について</p>
 </div>
 <% end %>
 

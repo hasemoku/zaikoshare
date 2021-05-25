@@ -1,0 +1,27 @@
+.login-btn {
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.login-red-btn {
+  width: 100%;
+  background-image: linear-gradient(-90deg, #f02d26, #008cff);
+  transition: .5s;
+  background-size: 200%;
+  border: solid 0.3px rgba(44, 44, 44, 0.541);
+  color: rgb(255, 255, 255);
+  line-height: 48px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.login-red-btn:hover{
+background-position: right center;
+}
+
+.login-flash-message {
+  text-align: center;
+  color: red;
+}

@@ -7,12 +7,12 @@
       <%= @item.product_name %>
     </h2>
     <div class="item-img-content">
-      <%= image_tag @item.image ,class:"item-box-img" %>
-      <%# <% if @item.purchase.present? %>
-      <%# <div class="sold-out">
-        <span>Sold Out!!</span>
-      </div> %>
-      <%# end %> 
+      <%= image_tag @item.image ,class:"item-img" %>
+      <% if @item.purchase.present? %>
+      <div class='sold-out'>
+        <span>売約済み</span>
+      </div>
+      <% end %>
     </div>
     <% if user_signed_in? && @item.purchase.blank? %>
       <% if current_user.id == @item.user_id %>
@@ -26,8 +26,8 @@
     <table class="detail-table">
       <tbody>
         <tr>
-          <th class="detail-item">出品者</th>
-          <td class="detail-value"><%= @item.user.name %></td>
+          <th class="detail-item">出品社</th>
+          <td class="detail-value"><%= @item.user.company %></td>
         </tr>
         <tr>
           <th class="detail-item">商品の種類</th>
