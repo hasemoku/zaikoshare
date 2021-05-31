@@ -53,5 +53,9 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:product_name, :sheet_id, :condition1_id, :condition2_id, :condition3_id, :type_id, :image).merge(user_id: current_user.id)
   end
+
+  def move_to_index
+    return redirect_to root_path if current_user.id != @item.user_id || @item.purchase.present?
+  end
 end
 
