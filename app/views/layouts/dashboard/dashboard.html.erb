@@ -1,0 +1,37 @@
+
+    <%= render partial: 'layouts/dashboard/header' %>
+    <div class="row">
+      <div class="col-3 mt-3">
+        <%= render partial: 'layouts/dashboard/sidebar' %>
+      </div>
+      <div class="col">
+        <main class="py-4 mb-5">
+        <% @items.each do |item| %>
+        <li class='list'>
+          <%= link_to item_path(item.id) do %>
+          <div class='item-img-content'>
+            <%= image_tag item.image, class: "item-img" %>
+            <% if item.purchase.present? %>
+            <div class='sold-out'>
+              <span>売約済み</span>
+              <h4 class='item-company'>  
+              購入者<span class='item-info-icon'><i class="fas fa-angle-double-right"></i></span><%= item.purchase.user_id%>
+              </h4>
+            </div>
+            <% end %>
+          </div>
+          <div class='item-info'>
+            <h4 class='item-name'>
+              商品名<span class='item-info-icon'><i class="fas fa-angle-double-right"></i></span><%= item.product_name %>
+            </h4>
+            <h4 class='item-company'>  
+              出品社<span class='item-info-icon'><i class="fas fa-angle-double-right"></i></span><%= item.user.company%>
+            </h4>
+          </div>
+          <% end %>
+        </li>
+      <% end %>
+          <%= yield %>
+        </main>
+      </div>
+    </div>
